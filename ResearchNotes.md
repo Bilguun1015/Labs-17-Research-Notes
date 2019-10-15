@@ -30,3 +30,33 @@ tables with course_id column:
 - ProgressReport
 - ReceiptLineItem
 - SectionExam
+
+**All the tables with their properties**
+ Attendance       | {notes,meeting_id,student_id,attendance}
+ Block            | {block_id,neighborhood}
+ Calendar         | {public_school,int_sec_open,calendar_date,lower_primary_open,activity,upper_primary_open}
+ ContactLog       | {follow-up_required,follow-up_result,person_contacting,contact_id,request_date,request_time,person_requesting,student_id,reason,contact_date,contact_time,telephone_number,person_contacted,Outcome}
+ ContactType      | {method}
+ CourseEnrollment | {course_id,student_id,first_day,last_day,result,notes}
+ CourseLength     | {meetings}
+ CourseSchedule   | {ID,long_description,sql,short_description}
+ CourseType       | {type_id,description}
+ GeneralCourse    | {hourly_rate,course_id,legacy_id,term,course_type,gender,group_type,grade_level,level,  section,subsection,days,room,start_time,end_time,teacher,notes,status}
+ GroupType        | {type_id,short_description,long_description}
+ Invoice          | {invoice_number,invoice_date,invoice_note}
+ InvoiceLineItem  | {invoice_line_item_id,invoice_number,student_id,course_id,item_id,quantity,amount,payment_due,notes} Item             | {item_id,description,category,price}
+ Level            | {certificate_text,level_id,textbook,description,cef_equivalent,pacing_guide}
+ Meeting          | {notes,unpaid,meeting_id,course_id,meeting_date,teacher,material_covered,homework_assigned}
+ PacingGuide      | {lesson,content,pacing_name,section}
+ Paste Errors     | {F1,F3,F2,F4,F5,F6}
+ PlacementExam    | {student_id,placement_id,test_date,test,overall_level,speaking_fluency,spoken_accuracy,listening_comprehension,oral_level,mc_correct,mc_marked,mc_level,writing_level,notes}
+ ProgressReport   | {student_id,teacher_id,course_id,report_date,interest,participation,submitting_homework,homework_effort,speaking_fluency,speaking_accuracy,pronunciation,vocabulary,grammar,listening,reading,writing,overall,notes}
+ Receipt          | {receipt_number,receipt_date,total_amount,received_by,notes}
+ ReceiptLineItem  | {receipt_line_item_id,receipt_number,student_id,course_id,item_id,quantity,amount,notes}
+ ResultType       | {ID,short_description,long_description}
+ Room             | {room_id,chairs,availability}
+ SchoolGrade      | {grade_id,description}
+ SectionExam      | {exam_id,course_id,student_id,exam_date,overall_score,raw_score,written_score,vocabulary,fluency,accuracy,communication,notes}
+ Staff            | {staff_id,staff_name,cpr,mobile_number,email,accent,bio,gender,birthdate,admin,active,short_name,teaching_rate}
+ Student          | {student_id,cpr,registration_date,first_name,additional_names,gender,birthdate,school_grade,school_name,grade_updated,home_telephone,mobile_telephone,block,road,building,flat,email,notes,preferred_contact_method,no_call,delinquent_account,expelled}
+ Term             | {term_id,term_name,subsection}
