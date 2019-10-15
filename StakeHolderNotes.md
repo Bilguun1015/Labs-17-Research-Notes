@@ -22,7 +22,7 @@ Victoria database usage workflow:
 
 Questions: enrolled student
 
-- If the student is enrolled already and if the parents don't know their student id, find student id -->  go to student table find by firstname and then by family name to locate the student id
+- If the student is enrolled already and if the parents don't know the student id, find student id -->  go to student table find by firstname and then by family name to locate the student id
 - go to student enrollment form with the student id -- which shows the courses the student has taken, shows pass/dropped/confirmed/no exam(right at the end of a section didnt show up for the exam)/failed/transferredOut(same level different day)/cancelEnrollment(before the class started changed their mind)/noShow/unconfirmed(before putting the student into the group)
 - go to course information(query) shows the courses -> with the id of the course add the student into the course with parents acceptance, in excel shows the detail info on the course, how many students/inspection/teacher/level/startdate/enddate/roomnumber/
 - excel  also autopopulates the attendance sheet - teachers will be filling the attendance by hand on a printed form
@@ -48,3 +48,15 @@ what information should be one place?
 reenrollment_eligible -> send them sms
 student_reciepts(form) -> shows the balance and what paid, can ensure the parents for their childrens unpaid balance
 
+what are the most important queries?
+- Account_balances_net
+- active_students
+- attending_by_term
+- birthdays
+- class_call_list
+- course_date_section_exam
+- course_information (uses a lot)
+making new enrollment for next -> take the existing student from the current class they are enrolled in and add them to another enrollment to future planning (unconfirmed is the status)
+
+Registering a student required fields
+name, CPR, 
