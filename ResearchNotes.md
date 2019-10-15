@@ -32,8 +32,10 @@ tables with course_id column:
 - SectionExam
 
 **All the tables with their properties**
-| Table Name | Columns |
-| ---------- | ------- |
+
+
+| Table Name       | Columns |
+| ---------------  | ---------------------------------------- |
 | Attendance       | notes, meeting_id, student_id, attendance|
 | Block            | block_id, neighborhood|
 | Calendar         | public_school, int_sec_open, calendar_date, lower_primary_open, activity, upper_primary_open|
