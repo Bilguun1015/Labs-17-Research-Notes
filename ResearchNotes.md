@@ -12,6 +12,8 @@ rest-admin-dashboard: https://steelkiwi.com/blog/add-an-admin-panel-to-nodejs-pr
 
 
 **Searching Through the Database**
+
+
 tables with student_id column:
 - Attendance
 - ContactLog
@@ -22,6 +24,8 @@ tables with student_id column:
 - ReceiptLineItem
 - SectionExam
 - Student
+
+
 tables with course_id column:
 - CourseEnrollment
 - GeneralCourse
@@ -64,3 +68,11 @@ tables with course_id column:
 | Staff            | staff_id, staff_name, cpr, mobile_number, email, accent, bio, gender, birthdate, admin, active, short_name, teaching_rate|
 | Student          | student_id, cpr, registration_date, first_name, additional_names, gender, birthdate, school_grade, school_name, grade_updated, home_telephone, mobile_telephone, block, road, building, flat, email, notes, preferred_contact_method, no_call, delinquent_account, expelled|
 | Term             | term_id, term_name, subsection|
+
+
+**All the queiries and what they accomplish**
+
+
+| Query Name | What It Accomplishes | What Tables It Affects | Another Query Affected |
+| ---------- | -------------------- | ---------------------- | ---------------------- |
+| account_balances_net | Takes student id displays their names, mobile_telephone, balance_owed, deliquent_account, no_call and notes. | Student, ReceiptLineItem | account_balances_receipt -> which uses the student_id to sum all the amount in the ReceiptLineItem group them by student_id |
