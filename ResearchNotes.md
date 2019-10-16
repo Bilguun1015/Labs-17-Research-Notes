@@ -70,9 +70,10 @@ tables with course_id column:
 | Term             | term_id, term_name, subsection|
 
 
-**All the queiries and what they accomplish**
+**All the queiries and what they accomplish (order by importance - most important first)**
 
 
-| Query Name | What It Accomplishes | What Tables It Affects | Another Query Affected |
-| ---------- | -------------------- | ---------------------- | ---------------------- |
-| account_balances_net | Takes student id displays their names, mobile_telephone, balance_owed, deliquent_account, no_call and notes. | Student, ReceiptLineItem | account_balances_receipt -> which uses the student_id to sum all the amount in the ReceiptLineItem group them by student_id |
+| Query Name | What It Accomplishes | PostgreSQL | What Tables It Affects | Additional Query Affected |
+| ---------- | -------------------- | ------------------- | ---------------------- | ------------------------- |
+| account_balances_net | Takes student id displays their names, mobile_telephone, balance_owed, deliquent_account, no_call and notes. | SELECT s.student_id, s.first_name, s.additional_names, s.mobile_telephone, s.delinquent_account, s.no_call, s.notes, invoice.sum as invoice_sum, receipt.sum as receipt_sum, sum(invoice.sum - receipt.sum) as balance_owed FROM "Student" as s LEFT JOIN (select student_id, sum(amount) from "InvoiceLineItem" group by student_id) as invoice ON s.student_id = invoice.student_id LEFT JOIN (select student_id, sum(amount) from "ReceiptLineItem" group by student_id) as receipt ON s.student_id = receipt.student_id GROUP BY s.student_id, invoice.sum, receipt.sum; | Student, ReceiptLineItem | account_balances_receipt -> which uses the student_id to sum all the amount in the ReceiptLineItem group them by student_id |
+| active_students | Takes student_id and displays active status of the student | CourseEnrollment, GeneralCourse |  
